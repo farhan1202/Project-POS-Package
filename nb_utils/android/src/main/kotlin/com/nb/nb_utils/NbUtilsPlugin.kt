@@ -43,16 +43,16 @@ class NbUtilsPlugin : FlutterPlugin, MethodCallHandler {
         }
     }
 
-    private fun packageInfo(): Map<String, Any> {
+    private fun packageInfo(): Any {
         val packageManager = appContext!!.packageManager
         val packageInfo = packageManager.getPackageInfo(appContext!!.packageName, 0)
 
         var appName = ""
         val applicationInfo = packageInfo.applicationInfo
-        val stringId = applicationInfo.labelRes
+        val stringId = applicationInfo?.labelRes
 
         appName = if (stringId == 0) {
-            applicationInfo.nonLocalizedLabel.toString()
+            applicationInfo?.nonLocalizedLabel.toString()
         } else {
             appContext!!.getString(stringId)
         }

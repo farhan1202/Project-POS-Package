@@ -47,7 +47,6 @@ class NbUtilsPlugin : FlutterPlugin, MethodCallHandler {
         val packageManager = appContext!!.packageManager
         val packageInfo = packageManager.getPackageInfo(appContext!!.packageName, 0)
 
-        var appName = ""
         val applicationInfo = packageInfo.applicationInfo
         val stringId = applicationInfo?.labelRes
 

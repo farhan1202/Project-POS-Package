@@ -49,10 +49,10 @@ class NbUtilsPlugin : FlutterPlugin, MethodCallHandler {
 
         var appName = ""
         val applicationInfo = packageInfo.applicationInfo
-        val stringId = applicationInfo!.labelRes
+        val stringId = applicationInfo?.labelRes
 
-        appName = if (stringId != null && stringId == 0)  {
-            applicationInfo!.nonLocalizedLabel.toString()
+        val appName = if (stringId != null && stringId == 0)  {
+            applicationInfo.nonLocalizedLabel.toString()
         } else {
             appContext!!.getString(stringId!!)
         }
